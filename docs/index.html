@@ -3,28 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- TODO: BS-Cloth title — update the three lines below -->
-  <title>BS-Cloth: TODO Short Title Here</title>
-  <meta name="description" content="TODO: one-sentence description of BS-Cloth for search engines.">
-  <meta name="author" content="TODO: Author One, Author Two">
-  <meta name="keywords" content="BS-Cloth, cloth simulation, TODO: add more keywords">
+  <title>Efficient B-Spline Finite Elements for Cloth Simulation</title>
+  <meta name="description" content="Project page for &quot;Efficient B-Spline Finite Elements for Cloth Simulation&quot;. A C¹-continuous quadratic B-spline FEM with reduced integration, fast Hessian assembly, and partial factorization that is on average 2× faster than linear FEM for cloth at comparable visual quality.">
+  <meta name="author" content="Yuqi Meng, Yihao Shi, Kemeng Huang, Zixuan Lu, Ning Guo, Taku Komura, Yin Yang, Minchen Li">
+  <meta name="keywords" content="cloth simulation, B-spline FEM, isogeometric analysis, membrane locking, bending, IPC, garment animation, SIGGRAPH 2026">
 
-  <!-- TODO: update canonical URL once published -->
-  <link rel="canonical" href="https://TODO-your-github-username.github.io/BS-Cloth/">
+  <!-- TODO: replace TODO-username with your actual GitHub username once the page is published -->
+  <link rel="canonical" href="https://TODO-username.github.io/BS-Cloth/">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="BS-Cloth">
-  <meta property="og:title" content="BS-Cloth: TODO Short Title Here">
-  <meta property="og:description" content="TODO: one-sentence description of BS-Cloth.">
-  <meta property="og:url" content="https://TODO-your-github-username.github.io/BS-Cloth/">
-  <meta property="og:image" content="https://TODO-your-github-username.github.io/BS-Cloth/static/images/teaser.png">
-  <meta property="og:image:alt" content="BS-Cloth project preview image">
+  <meta property="og:title" content="Efficient B-Spline Finite Elements for Cloth Simulation">
+  <meta property="og:description" content="C¹-continuous quadratic B-spline FEM for cloth — on average 2× faster than linear FEM at comparable visual quality, with mitigated membrane locking and IPC-based contact.">
+  <meta property="og:url" content="https://TODO-username.github.io/BS-Cloth/">
+  <meta property="og:image" content="https://TODO-username.github.io/BS-Cloth/static/images/teaser.png">
+  <meta property="og:image:alt" content="Cloth basket teaser: four garments collide and accumulate in a B-spline basket">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="BS-Cloth: TODO Short Title Here">
-  <meta name="twitter:description" content="TODO: one-sentence description of BS-Cloth.">
-  <meta name="twitter:image" content="https://TODO-your-github-username.github.io/BS-Cloth/static/images/teaser.png">
-  <meta name="twitter:image:alt" content="BS-Cloth project preview image">
+  <meta name="twitter:title" content="Efficient B-Spline Finite Elements for Cloth Simulation">
+  <meta name="twitter:description" content="C¹-continuous quadratic B-spline FEM for cloth — 2× faster than linear FEM at comparable visual quality.">
+  <meta name="twitter:image" content="https://TODO-username.github.io/BS-Cloth/static/images/teaser.png">
+  <meta name="twitter:image:alt" content="BS-Cloth teaser image">
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro|Quicksand:500;600" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
@@ -34,69 +33,17 @@
   <link rel="icon" href="./static/images/favicon.svg">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <!-- model-viewer is kept for the baseline comparison section (commented out below) -->
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/index.js"></script>
   <style>
-    .comparison-note {
-      margin-bottom: 1.5rem;
-    }
-
-    .comparison-table-wrapper {
-      overflow-x: auto;
-    }
-
-    .comparison-table {
-      width: 100%;
-      min-width: 1100px;
-      border-collapse: collapse;
-    }
-
-    .comparison-table th,
-    .comparison-table td {
-      border: 1px solid #e5e7eb;
-      padding: 0.75rem;
-      text-align: center;
-      vertical-align: top;
-    }
-
-    .comparison-table th {
-      background: #f5f7fa;
-      font-weight: 700;
-    }
-
-    .comparison-prompt {
-      min-width: 180px;
-      max-width: 220px;
-      text-align: center;
-      white-space: normal;
-      word-break: break-word;
-      font-family: "Quicksand", "Noto Sans", sans-serif;
-      font-size: 1.05rem;
-      line-height: 1.55;
-      font-weight: 600;
-    }
-
-    model-viewer.comparison-model {
-      width: 240px;
-      height: 240px;
-      margin: 0 auto;
-      background: #f8fafc;
-      border-radius: 12px;
-      --poster-color: #f8fafc;
-    }
-
     .application-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.5rem;
     }
-
     .application-grid + .application-grid {
       margin-top: 1.5rem;
     }
-
     .application-card {
       padding: 1rem;
       border: 1px solid #e5e7eb;
@@ -104,20 +51,11 @@
       background: #ffffff;
       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
     }
+    .application-card h3 { margin-bottom: 0.5rem; }
+    .application-card p  { margin-bottom: 1rem; }
 
-    .application-card h3 {
-      margin-bottom: 0.5rem;
-    }
-
-    .application-card p {
-      margin-bottom: 1rem;
-    }
-
-    .application-subsection-title {
-      margin: 2rem 0 1rem;
-    }
-
-    .comparison-video {
+    .comparison-video,
+    .application-video {
       width: 100%;
       display: block;
       border-radius: 12px;
@@ -125,38 +63,188 @@
     }
 
     .application-image {
-      width: 80%;
-      margin: 0 auto;
+      width: 100%;
       display: block;
       border-radius: 12px;
       background: #f8fafc;
       object-fit: contain;
     }
 
-    .robotics-row .application-card {
-      width: 100%;
-      grid-column: 1 / -1;
-      justify-self: center;
-    }
-
+    .full-row .application-card,
+    .robotics-row .application-card,
     .demo-video-row .application-card {
-      width: 100%;
       grid-column: 1 / -1;
+      width: 100%;
       justify-self: center;
     }
 
-    .demo-video-link {
-      margin-bottom: 0;
+    .figure-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .figure-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #fff;
+      padding: 0.75rem;
+      box-shadow: 0 6px 18px rgba(15,23,42,0.05);
+    }
+    .figure-card img {
+      width: 100%;
+      border-radius: 8px;
+      background: #f8fafc;
+    }
+    .figure-card figcaption {
+      margin-top: 0.5rem;
+      color: #555;
+      font-size: 0.92rem;
+      line-height: 1.4;
+    }
+
+    /* Square-cloth comparison table (per-method side-by-side videos) */
+    .comparison-table-wrapper {
+      overflow-x: auto;
+      margin: 1rem 0 0;
+    }
+    .comparison-table {
+      width: 100%;
+      min-width: 880px;
+      border-collapse: collapse;
+    }
+    .comparison-table th,
+    .comparison-table td {
+      border: 1px solid #e5e7eb;
+      padding: 0.6rem;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .comparison-table th {
+      background: #f5f7fa;
+      font-weight: 700;
+      font-family: 'Google Sans', sans-serif;
+    }
+    .comparison-prompt {
+      min-width: 140px;
+      max-width: 200px;
+      text-align: center;
+      font-family: "Quicksand", "Noto Sans", sans-serif;
+      font-size: 1.0rem;
+      line-height: 1.45;
+      font-weight: 600;
+      background: #fafbfc;
+    }
+    .comparison-table .cell-video {
+      width: 100%;
+      max-width: 220px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 8px;
+      background: #000;
+    }
+
+    /* Stress-test horizontal scroll-snap carousel (barrier-free style) */
+    .demo-carousel {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+    .demo-track {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 0.25rem 0;
+      scrollbar-width: none;
+      scroll-snap-type: x mandatory;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+    .demo-track::-webkit-scrollbar { display: none; }
+    .demo-card {
+      flex: 0 0 100%;
+      width: 100%;
+      scroll-snap-align: start;
+      padding: 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+    .demo-card h3 { margin-bottom: 0.5rem; }
+    .demo-card p  { margin-bottom: 1rem; }
+    /* Stress-test video frame size — tweak max-width / max-height to taste. */
+    .demo-card .demo-video {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 1920px;     /* widen / narrow the video here */
+      max-height: 60vh;     /* cap height so tall scenes don't overflow */
+      border-radius: 12px;
+      background: #000;
+    }
+    /* Minimal chevron buttons — no circle, just the glyph. */
+    .scroll-button {
+      flex: 0 0 auto;
+      width: 2.5rem;
+      height: 2.5rem;
+      border: none;
+      background: transparent;
+      color: #888;
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 1.6rem;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.15s ease, transform 0.15s ease;
+    }
+    .scroll-button:hover { color: #222; transform: scale(1.15); }
+    .scroll-button:focus { outline: none; color: #4378bf; }
+
+    /* Supplementary-video YouTube link card */
+    .video-link-card {
+      position: relative;
+      display: block;
+      max-width: 720px;
+      margin: 1rem auto 0;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      background: #000;
+    }
+    .video-link-card img {
+      width: 100%;
+      display: block;
+      transition: transform 0.4s ease, opacity 0.3s ease;
+    }
+    .video-link-card:hover img {
+      transform: scale(1.02);
+      opacity: 0.92;
+    }
+    .video-link-card .play-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: rgba(220, 38, 38, 0.92);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.4rem;
+      pointer-events: none;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
     }
 
     @media screen and (max-width: 768px) {
-      .application-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .robotics-row .application-card {
-        width: 100%;
-      }
+      .application-grid { grid-template-columns: 1fr; }
+      .demo-card { flex-basis: 100%; }
     }
   </style>
 </head>
@@ -172,14 +260,11 @@
   </div>
   <div class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="./">
-        <span class="icon"><i class="fas fa-home"></i></span>
-      </a>
-      <a class="navbar-item" href="#method">Method</a>
-      <a class="navbar-item" href="#demo-video">Demo Video</a>
-      <a class="navbar-item" href="#applications">Applications</a>
-      <!-- TODO: uncomment when baseline comparison section is re-enabled -->
-      <!-- <a class="navbar-item" href="#results">Results</a> -->
+      <a class="navbar-item" href="./"><span class="icon"><i class="fas fa-home"></i></span></a>
+      <a class="navbar-item" href="#abstract">Abstract</a>
+      <a class="navbar-item" href="#comparison-table">Comparisons</a>
+      <a class="navbar-item" href="#stress">More Results</a>
+      <a class="navbar-item" href="#video">Video</a>
       <a class="navbar-item" href="#citation">Citation</a>
     </div>
   </div>
@@ -190,29 +275,33 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <!-- TODO: BS-Cloth title — replace the text inside the <h1> tag -->
-          <h1 class="title is-1 publication-title">BS-Cloth: TODO Full Paper Title Here</h1>
+          <h1 class="title is-1 publication-title">Efficient B-Spline Finite Elements for Cloth Simulation</h1>
           <div class="is-size-5 publication-authors">
-            <!-- TODO: authors — replace each <a href> with a link to the author's page -->
-            <span class="author-block"><a href="#">Author One</a><sup>1</sup>,</span>
-            <span class="author-block"><a href="#">Author Two</a><sup>1</sup>,</span>
-            <span class="author-block"><a href="#">Author Three</a><sup>2</sup></span>
+            <span class="author-block">Yuqi Meng<sup>1,2</sup>,</span>
+            <span class="author-block">Yihao Shi<sup>1,3</sup>,</span>
+            <span class="author-block">Kemeng Huang<sup>1,4</sup>,</span>
+            <span class="author-block">Zixuan Lu<sup>2</sup>,</span>
+            <br>
+            <span class="author-block">Ning Guo<sup>3</sup>,</span>
+            <span class="author-block">Taku Komura<sup>4</sup>,</span>
+            <span class="author-block">Yin Yang<sup>2</sup>,</span>
+            <span class="author-block">Minchen Li<sup>1</sup></span>
           </div>
 
-          <div class="is-size-5 publication-authors">
-            <!-- TODO: affiliations -->
-            <span class="author-block"><sup>1</sup>University A,</span>
-            <span class="author-block"><sup>2</sup>University B</span>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>1</sup>Carnegie Mellon University,</span>
+            <span class="author-block"><sup>2</sup>University of Utah,</span>
+            <span class="author-block"><sup>3</sup>Zhejiang University,</span>
+            <span class="author-block"><sup>4</sup>University of Hong Kong</span>
           </div>
 
-          <div class="is-size-5 publication-authors">
-            <!-- TODO: venue — e.g. SIGGRAPH 2026, NeurIPS 2026 -->
-            <span class="author-block">TODO: Venue Year</span>
+          <div class="is-size-5 publication-authors" style="margin-top: 0.5rem;">
+            <span class="author-block"><strong>ACM Transactions on Graphics (SIGGRAPH 2026)</strong></span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- TODO: links — replace href="#" with real URLs when available -->
+              <!-- TODO: links — replace href="#" with real URLs once available -->
               <span class="link-block">
                 <a href="#" class="external-link button is-normal is-rounded" style="background-color:#ffffff; color: #e8562a; border: 2px solid #e8562a;">
                   <span class="icon" style="color:#e8562a;"><i class="ai ai-arxiv"></i></span>
@@ -226,12 +315,23 @@
                 </a>
               </span>
               <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded" style="background-color:#ffffff; color: #4378bf; border: 2px solid #4378bf;">
+                  <span class="icon" style="color:#4378bf;"><i class="fas fa-file-alt"></i></span>
+                  <span>Supplemental</span>
+                </a>
+              </span>
+              <span class="link-block">
                 <a href="#" class="external-link button is-normal is-rounded" style="background-color:#f5f5f5; color: #24292e; border: 2px solid #24292e;">
                   <span class="icon" style="color:#24292e;"><i class="fab fa-github"></i></span>
                   <span>Code</span>
                 </a>
               </span>
-              <!-- TODO: add or remove buttons as needed (Data, Press, Poster, Slides, etc.) -->
+              <span class="link-block">
+                <a href="#video" class="external-link button is-normal is-rounded" style="background-color:#ffffff; color: #c0392b; border: 2px solid #c0392b;">
+                  <span class="icon" style="color:#c0392b;"><i class="fab fa-youtube"></i></span>
+                  <span>Video</span>
+                </a>
+              </span>
             </div>
           </div>
         </div>
@@ -243,43 +343,44 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- TODO: teaser — replace static/images/teaser.png with your figure -->
-      <img src="./static/images/teaser.png" alt="BS-Cloth teaser image" class="teaser-image">
+      <img src="./static/images/teaser.png" alt="Cloth basket teaser: four garments are launched toward a basket with fixed corners, collide, and accumulate inside" class="teaser-image">
       <h2 class="subtitle has-text-centered">
-        <!-- TODO: teaser caption — one sentence describing your method/result -->
-        TODO: A one-sentence teaser caption summarizing your method.
+        <strong>Cloth basket.</strong> Four garments are launched toward a B-spline basket with fixed corners,
+        collide with each other, and accumulate inside. Both the garments and the basket faces are modeled
+        as B-spline surfaces (51K control points, $\Delta t = 0.01$&nbsp;s); IPC integration handles contact throughout.
       </h2>
     </div>
   </div>
 </section>
 
-<section class="section" id="method">
+<section class="section" id="abstract">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <!-- TODO: abstract — paste your paper abstract here, split into paragraphs -->
-          <p>TODO: paste abstract paragraph 1 here.</p>
-          <p>TODO: paste abstract paragraph 2 here.</p>
-          <p>TODO: paste abstract paragraph 3 here.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered">Method Overview</h2>
-        <div class="content has-text-centered">
-          <!-- TODO: method figure — replace static/images/pipeline.png with your method diagram -->
-          <img src="./static/images/pipeline.png" class="method-image" alt="BS-Cloth method overview">
-          <p class="method-caption">
-            <ul style="text-align: left; display: inline-block; margin: 0; padding-left: 1.3em;">
-              <!-- TODO: method bullets — describe each stage of your pipeline -->
-              <li>TODO: describe pipeline stage 1.</li>
-              <li>TODO: describe pipeline stage 2.</li>
-              <li>TODO: describe pipeline stage 3.</li>
-            </ul>
+          <p>
+            We present an efficient B-spline finite element method (FEM) for cloth simulation. While higher-order FEM
+            has long promised higher accuracy, its adoption in cloth simulators has been limited by larger computational
+            costs while generating results with similar visual quality. Our contribution is a full algorithmic pipeline
+            that makes cloth simulation using quadratic B-spline surfaces <strong>faster than standard linear FEM</strong>
+            in practice while consistently improving accuracy and visual fidelity.
+          </p>
+          <p>
+            Using quadratic B-spline basis functions, we obtain a globally <em>C<sup>1</sup></em>-continuous displacement
+            field that supports consistent discretization of both membrane and bending energies, effectively reducing
+            locking artifacts and mesh dependence common to linear elements. To close the performance gap, we introduce
+            a reduced integration scheme that separately optimizes quadrature rules for membrane and bending energies,
+            an accelerated Hessian assembly procedure tailored to the spline structure, and an optimized linear solver
+            based on partial factorization.
+          </p>
+          <p>
+            Together, these optimizations make high-order, smooth cloth simulation competitive at scale, yielding an
+            average <strong>2× speedup over linear FEM</strong>. Extensive experiments demonstrate improved accuracy,
+            wrinkle detail, and robustness, including contact-rich scenarios, relative to linear FEM and recent
+            higher-order approaches. Our method enables realistic wrinkling dynamics across a wide range of material
+            parameters and supports practical garment animation, providing a new promising spatial discretization for
+            high-quality cloth simulation.
           </p>
         </div>
       </div>
@@ -287,66 +388,28 @@
   </div>
 </section>
 
-<section class="section" id="demo-video">
+<section class="section" id="comparison-table">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered">Demo Video</h2>
-        <div class="application-grid demo-video-row">
-          <div class="application-card">
-            <!-- TODO: demo video — drop demo.mp4 into static/videos/ and update the src below -->
-            <h3 class="title is-5">BS-Cloth Demonstration</h3>
-            <p>TODO: one-sentence description of what the demo shows.</p>
-            <!-- TODO: drop your demo video at static/videos/demo.mp4 -->
-            <video class="comparison-video" controls playsinline preload="metadata">
-              <source src="./static/videos/demo.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="applications">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered">Applications</h2>
-        <!-- TODO: applications — edit the JavaScript block at the bottom of this file to populate this grid,
-             or replace the two divs below with hand-written application cards -->
-        <div class="application-grid" id="video-application-grid"></div>
-        <div class="application-grid robotics-row" id="image-application-grid"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- TODO: baseline comparison — uncomment this entire section once you have exported .glb meshes.
-     Place files at: static/models/<slug>/<method>/output.glb
-     Update the `experiments` and `methods` arrays in the <script> block below to match your data.
-
-<section class="section" id="results">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered">Baseline Comparison</h2>
-        <p class="comparison-note has-text-centered">
-          TODO: describe the comparison setup here.
+        <h2 class="title is-3 has-text-centered">Comparisons on Square Cloth</h2>
+        <p class="has-text-centered" style="margin-bottom: 0.5rem;">
+          Per-method side-by-side playback on three benchmark tests — upright hanging, drape, and shear — against
+          linear FEM, SFEM&nbsp;[Liang&nbsp;et&nbsp;al.&nbsp;2023] and BHEM&nbsp;[Ni&nbsp;et&nbsp;al.&nbsp;2024].
+          Posters show the still results from the paper until the videos are dropped in.
         </p>
         <div class="comparison-table-wrapper">
           <table class="comparison-table">
             <thead>
               <tr>
-                <th>Prompt</th>
-                <th>Baseline A</th>
-                <th>Baseline B</th>
-                <th>Ours</th>
+                <th>Test</th>
+                <th>B-spline FEM (Ours)</th>
+                <th>Linear FEM</th>
+                <th>SFEM</th>
+                <th>BHEM</th>
               </tr>
             </thead>
-            <tbody id="baseline-comparison-body"></tbody>
+            <tbody id="comparison-table-body"></tbody>
           </table>
         </div>
       </div>
@@ -354,20 +417,67 @@
   </div>
 </section>
 
--->
+<section class="section" id="stress" style="background:#f8f8f8;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">More Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            Beyond comparisons we stress-test the method through scaling and contact-rich configurations on both
+            rectangular and non-rectangular meshes. Use the arrows to switch between scenes.
+          </p>
+        </div>
 
+        <div class="demo-carousel">
+          <button class="scroll-button" type="button" id="stress-scroll-left" aria-label="Previous stress test">&#12298;</button>
+          <div class="demo-track" id="stress-track"></div>
+          <button class="scroll-button" type="button" id="stress-scroll-right" aria-label="Next stress test">&#12299;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="video" style="background:#f8f8f8;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Supplementary Video</h2>
+        <p class="has-text-centered" style="margin-bottom: 0.5rem;">
+          A complete walkthrough of the method with all simulation results in motion — validation tests,
+          square-cloth comparisons, contact-rich stress tests, and full-character garment animations.
+        </p>
+        <!-- TODO_YOUTUBE_URL: replace href below with the full YouTube watch URL -->
+        <a class="video-link-card" href="TODO_YOUTUBE_URL" target="_blank" rel="noopener noreferrer"
+           aria-label="Watch the supplementary video on YouTube">
+          <img src="./static/images/teaser.png" alt="Supplementary video — click to watch on YouTube">
+          <span class="play-overlay" aria-hidden="true">
+            <i class="fab fa-youtube"></i>
+          </span>
+        </a>
+        <p class="has-text-centered" style="margin-top: 0.75rem; color: #666; font-size: 0.95rem;">
+          Click to open on YouTube&nbsp;
+          <i class="fab fa-youtube" style="color:#c0392b;"></i>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="citation">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{bscloth,
-  title   = {TODO: Full Paper Title},
-  author  = {TODO: Author One and Author Two and Author Three},
-  journal = {TODO: journal or booktitle},
-  year    = {TODO: year},
-  url     = {TODO: paper URL}
-}
-</code></pre>
+    <pre><code>@article{meng2026bspline,
+  title   = {Efficient B-Spline Finite Elements for Cloth Simulation},
+  author  = {Meng, Yuqi and Shi, Yihao and Huang, Kemeng and Lu, Zixuan and
+             Guo, Ning and Komura, Taku and Yang, Yin and Li, Minchen},
+  journal = {ACM Transactions on Graphics},
+  year    = {2026},
+  volume  = {TODO},
+  number  = {TODO},
+  doi     = {TODO}
+}</code></pre>
   </div>
 </section>
 
@@ -377,10 +487,11 @@
       <div class="column is-8">
         <div class="content has-text-centered">
           <p>
-            <!-- TODO: add your name/lab after the template attribution -->
-            Website framework adapted from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies template</a>
+            Website framework adapted from the
+            <a href="https://github.com/nerfies/nerfies.github.io">Nerfies template</a>
             and <a href="https://github.com/Simulation-Intelligence/PAT3D">PAT3D</a>.
-            TODO: Your Name / Lab Name &copy; 2025.
+            <!-- TODO: replace with your name / lab -->
+            &copy; 2026 The BS-Cloth authors.
           </p>
         </div>
       </div>
@@ -389,102 +500,145 @@
 </footer>
 
 <script>
-  // ─── Applications section ────────────────────────────────────────────────────
-  // TODO: populate videoItems with your application videos.
-  // Each object: { title, description, filename }  (filename relative to ./media/)
-  const videoItems = [
+  // ─── Square-cloth comparison videos ──────────────────────────────────────
+  // Per-method side-by-side videos. Drop mp4s at:
+  //   static/videos/comparison/<scene>_<method>.mp4
+  // until then, the per-test poster image is shown.
+  const comparisonMethods = [
+    { key: "bspline", label: "B-spline FEM (Ours)" },
+    { key: "linear",  label: "Linear FEM" },
+    { key: "sfem",    label: "SFEM" },
+    { key: "bhem",    label: "BHEM" }
+  ];
+  const comparisonScenes = [
+    { slug: "upright_hanging", label: "Upright Hanging Cloth", poster: "./static/images/upright_hanging.png" },
+    { slug: "drape",           label: "Drape Test",            poster: "./static/images/drape_test.png"     },
+    { slug: "shear",           label: "Shear Test",            poster: "./static/images/shear_test.png"     }
+  ];
+
+  // ─── Stress test scenes ──────────────────────────────────────────────────
+  // Order follows the paper's Stress Tests section (§5.4):
+  //   rotating sphere → helicopter → stripes → character animations (a/b/c) → cloth basket
+  const stressScenes = [
     {
-      title: "TODO: Application 1 Title",
-      description: "TODO: one-sentence description of this application.",
-      filename: "application1.mp4"   // TODO: drop this file at media/application1.mp4
+      title: "Cloth on Rotating Sphere",
+      description:
+        "A square cloth sheet falls onto a static sphere (μ=0.4, ε_v=10⁻²) and settles, then the sphere rotates " +
+        "counterclockwise — inducing intricate frictional wrinkles. 200×200 B-spline surface with a 300×300 linear " +
+        "contact mesh; IPC handles dense friction.",
+      image: "./static/images/cloth_rotating_sphere.png",
+      video: "./static/videos/rotating-sphere.mp4"
     },
     {
-      title: "TODO: Application 2 Title",
-      description: "TODO: one-sentence description of this application.",
-      filename: "application2.mp4"   // TODO: drop this file at media/application2.mp4
-    }
-  ];
-
-  // TODO: populate imageApplications with image-based application cards.
-  // Each object: { title, description, image: { src, alt, caption } }
-  const imageApplications = [
+      title: "Helicopter — Front View",
+      description:
+        "A 3 m × 3 m sheet falls from a 45° oblique angle onto a helicopter 1 m above the ground (200×200 B-spline " +
+        "+ 200×200 contact mesh). The rotor and back propeller act as moving boundaries that fold the sheet around " +
+        "the helicopter geometry.",
+      image: "./static/images/helicopter.png",
+      video: "./static/videos/helicopter-front.mp4"
+    },
     {
-      title: "TODO: Image Application Title",
-      description: "TODO: one-sentence description.",
-      image: {
-        src: "./static/images/application.png",  // TODO: replace with your image
-        alt: "TODO: alt text",
-        caption: "TODO: figure caption"
-      }
-    }
-  ];
-
-  // ─── Baseline comparison (only active when the Results section is uncommented) ─
-  // TODO: fill in your methods and experiment slugs, then uncomment the Results
-  // section above.  GLB files go at static/models/<slug>/<method>/output.glb.
-  const methods = ["baselineA", "baselineB", "ours"];
-  const experiments = [
+      title: "Helicopter — Back View",
+      description:
+        "Same helicopter scene from the back, showing how the back rotor rolls and stretches the cloth as the sheet " +
+        "comes to rest against the airframe.",
+      image: "./static/images/helicopter.png",
+      video: "./static/videos/helicopter-back.mp4"
+    },
     {
-      slug: "example_01",
-      prompt: '"TODO: text prompt for experiment 1"'
+      title: "Stripes Sweeping over Armadillo",
+      description:
+        "20 high-aspect-ratio stripes (10×150 B-spline) attached along their top edge to a moving rack sweep across " +
+        "an armadillo model as the rack moves back and forth, bending under contact and twisting against each other. " +
+        "C¹-continuity captures complex curvature and twist along the short edge with only 10 control points.",
+      image: "./static/images/brush_armadillo.png",
+      video: "./static/videos/stripes_armadillo_v2.mp4"
+    },
+    {
+      title: "Garment on Character — Shuffling",
+      description:
+        "Character animation (a): a running motion in a long floral dress. 95K B-spline DOF on non-rectangular " +
+        "garment patches generated by our mesh-conforming pipeline; smooth fabric swing under large-amplitude motion.",
+      image: "./static/images/character_garment.png",
+      video: "./static/videos/shuffling-v4-60.mp4"
+    },
+    {
+      title: "Garment on Character — Hiphop Dance",
+      description:
+        "Character animation (b): arm raises and rotations in a fitted T-shirt and shorts. 65K B-spline DOF; " +
+        "deformation around the shoulders, elbows, and torso under dense contact with the body.",
+      image: "./static/images/character_garment.png",
+      video: "./static/videos/hiphop-v2.mp4"
+    },
+    {
+      title: "Garment on Character — Skirt Swirl",
+      description:
+        "Character animation (c): twisting and side-stepping in a fitted top and a vertically-segmented skirt. " +
+        "124K B-spline DOF; lateral sway and rotational folds in the fabric, with stable contact across patch seams.",
+      image: "./static/images/character_garment.png",
+      video: "./static/videos/dancing-v1.mp4"
+    },
+    {
+      title: "Cloth Basket — Front View",
+      description:
+        "Four garments are launched into a B-spline basket with fixed corners, colliding with each other and the " +
+        "basket faces (also modeled as B-spline surfaces). 152K control-point garments + 191K contact mesh; IPC " +
+        "integration handles dynamic self-contact throughout.",
+      image: "./static/images/cloth_basket.png",
+      video: "./static/videos/cloth_basket_front_v2.mp4"
+    },
+    {
+      title: "Cloth Basket — Top View",
+      description:
+        "Same cloth-basket scene from above, showing the in-plane folding pattern as garments accumulate inside the " +
+        "basket and fabric layers fold against each other.",
+      image: "./static/images/cloth_basket.png",
+      video: "./static/videos/cloth_basket_top_v2.mp4"
     }
   ];
-  const missingResults = new Set([]);  // e.g. "example_01/baselineA" if result is missing
 
-  // ─── Rendering helpers (do not normally need to edit below this line) ─────────
-
-  function buildVideoCard(video) {
-    const videoUrl = `./media/${video.filename}`;
+  // ─── Rendering helpers ───────────────────────────────────────────────────
+  function buildComparisonCell(scene, method) {
+    const src = `./static/videos/comparison/${scene.slug}_${method.key}.mp4`;
     return `
-      <div class="application-card">
-        <h3 class="title is-5">${video.title}</h3>
-        <p>${video.description}</p>
-        <video class="comparison-video" controls muted playsinline preload="metadata">
-          <source src="${videoUrl}" type="video/mp4">
+      <td>
+        <video class="cell-video" muted playsinline preload="metadata" controls poster="${scene.poster}">
+          <source src="${src}" type="video/mp4">
+        </video>
+      </td>
+    `;
+  }
+  function buildComparisonRow(scene) {
+    const cells = comparisonMethods.map((m) => buildComparisonCell(scene, m)).join("");
+    return `<tr><td class="comparison-prompt">${scene.label}</td>${cells}</tr>`;
+  }
+
+  function buildStressCard(scene) {
+    // No `poster` attribute — the #t=0.1 fragment makes browsers seek to the first
+    // frame and display it as the still, so all cards inherit the video's native
+    // aspect ratio instead of an arbitrary poster image.
+    return `
+      <div class="demo-card">
+        <h3 class="title is-5">${scene.title}</h3>
+        <p>${scene.description}</p>
+        <video class="demo-video" controls muted playsinline preload="metadata">
+          <source src="${scene.video}#t=0.1" type="video/mp4">
         </video>
       </div>
     `;
   }
 
-  function buildImageApplicationCard(application) {
-    return `
-      <div class="application-card">
-        <h3 class="title is-5">${application.title}</h3>
-        <p>${application.description}</p>
-        <figure>
-          <img class="application-image" src="${application.image.src}" alt="${application.image.alt}">
-        </figure>
-      </div>
-    `;
-  }
+  document.getElementById("comparison-table-body").innerHTML = comparisonScenes.map(buildComparisonRow).join("");
+  const stressTrack = document.getElementById("stress-track");
+  stressTrack.innerHTML = stressScenes.map(buildStressCard).join("");
 
-  function buildModelCell(slug, method) {
-    if (missingResults.has(`${slug}/${method}`)) return "";
-    return `
-      <model-viewer
-        class="comparison-model"
-        src="./static/models/${slug}/${method}/output.glb"
-        camera-controls
-        auto-rotate
-        shadow-intensity="1"
-        exposure="0.9"
-        alt="${method} output for ${slug}">
-      </model-viewer>
-    `;
-  }
-
-  function buildRow(experiment) {
-    const methodCells = methods.map((m) => `<td>${buildModelCell(experiment.slug, m)}</td>`).join("");
-    return `<tr><td class="comparison-prompt">${experiment.prompt}</td>${methodCells}</tr>`;
-  }
-
-  document.getElementById("video-application-grid").innerHTML = videoItems.map(buildVideoCard).join("");
-  document.getElementById("image-application-grid").innerHTML = imageApplications.map(buildImageApplicationCard).join("");
-
-  const comparisonBody = document.getElementById("baseline-comparison-body");
-  if (comparisonBody) {
-    comparisonBody.innerHTML = experiments.map(buildRow).join("");
-  }
+  // ─── Stress carousel arrow buttons (scroll-snap pattern) ─────────────────
+  const stressLeft  = document.getElementById("stress-scroll-left");
+  const stressRight = document.getElementById("stress-scroll-right");
+  const stressStep  = () => Math.max(stressTrack.clientWidth * 0.95, 320);
+  stressLeft.addEventListener("click",  () => stressTrack.scrollBy({ left: -stressStep(), behavior: "smooth" }));
+  stressRight.addEventListener("click", () => stressTrack.scrollBy({ left:  stressStep(), behavior: "smooth" }));
 </script>
 
 </body>

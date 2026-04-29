@@ -1,132 +1,130 @@
 # BS-Cloth Project Page — Editing Guide
 
-Every editable spot in `index.html` is marked with `TODO:` so you can find them
-fast with Ctrl+F or `grep -n TODO docs/index.html`.
+The page is populated from the SIGGRAPH 2026 paper *"Efficient B-Spline Finite
+Elements for Cloth Simulation."* Author list, abstract, figure stills, and the
+section structure are in place. What remains is the URLs, the YouTube link, and
+the videos.
+
+Search `TODO:` in `index.html` to find every editable spot (~20 markers).
 
 ---
 
-## 1. Hero — title, authors, venue
+## 1. Abstract
 
-**File:** `docs/index.html`  
-**Search:** `TODO: BS-Cloth title`
+**File:** `docs/index.html`
+**Section:** `<section class="section" id="abstract">`
 
-Replace:
-```html
-<h1 class="title is-1 publication-title">BS-Cloth: TODO Full Paper Title Here</h1>
-```
-with your actual paper title.
+The three `<p>` tags inside `<div class="content has-text-justified">` are the
+three abstract paragraphs. Edit them directly — no special markers, just the
+prose itself.
 
-Then fill in author names and links inside the `<div class="is-size-5 publication-authors">` blocks:
-- Replace `Author One`, `Author Two`, etc.
-- Set `href="#"` to each author's personal/lab page.
-- Add or remove `<span class="author-block">` entries as needed.
-- Replace affiliation `<sup>` labels.
-- Set the venue (`TODO: Venue Year` → e.g. `SIGGRAPH 2026`).
-
----
-
-## 2. Resource buttons (arXiv, Paper, Code, …)
+## 2. Resource buttons (arXiv / Paper / Supplemental / Code / Video)
 
 **Search:** `TODO: links`
 
-Each button is a `<span class="link-block">` block.  
-- Replace `href="#"` with real URLs (arXiv, OpenReview/PDF, GitHub, dataset, etc.).
-- Add extra buttons by duplicating a block and changing the icon class (FontAwesome
-  or Academicons: `ai ai-arxiv`, `fas fa-file-pdf`, `fab fa-github`, `fas fa-database`, …).
+Five `<span class="link-block">` blocks. Replace each `href="#"` with a real
+URL once available. The "Video" button anchors to `#video` (the supplementary
+video at the bottom) — already wired, no change needed.
+
+## 3. Canonical / OG URLs
+
+**Search:** `TODO-username`
+
+Replace `TODO-username` everywhere in `<head>` with your actual GitHub
+username (or custom domain).
+
+## 4. Supplementary video (YouTube link)
+
+**Search:** `TODO_YOUTUBE_URL`
+
+Single occurrence in the `#video` section near the bottom. Replace with the
+full YouTube watch URL (e.g. `https://www.youtube.com/watch?v=XXXXXXXXXXX`).
+The teaser image acts as a thumbnail with a red play overlay; clicking opens
+YouTube in a new tab.
+
+## 5. Square-cloth comparison videos (12 files)
+
+The "Side-by-Side Video Comparison" table expects videos at
+`static/videos/comparison/<scene>_<method>.mp4`. Until they exist, the
+per-test poster image (the same still used in the Comparison section above)
+is shown in each cell.
+
+| Scene slug | Methods (4 each) |
+|---|---|
+| `upright_hanging` | `bspline`, `linear`, `sfem`, `bhem` |
+| `drape` | `bspline`, `linear`, `sfem`, `bhem` |
+| `shear` | `bspline`, `linear`, `sfem`, `bhem` |
+
+Full paths (12 files):
+```
+static/videos/comparison/upright_hanging_bspline.mp4
+static/videos/comparison/upright_hanging_linear.mp4
+static/videos/comparison/upright_hanging_sfem.mp4
+static/videos/comparison/upright_hanging_bhem.mp4
+static/videos/comparison/drape_bspline.mp4
+static/videos/comparison/drape_linear.mp4
+static/videos/comparison/drape_sfem.mp4
+static/videos/comparison/drape_bhem.mp4
+static/videos/comparison/shear_bspline.mp4
+static/videos/comparison/shear_linear.mp4
+static/videos/comparison/shear_sfem.mp4
+static/videos/comparison/shear_bhem.mp4
+```
+
+To rename slugs/methods, edit the `comparisonScenes` and `comparisonMethods`
+arrays in the `<script>` block at the bottom of `index.html`.
+
+## 6. Stress test videos (4 files, carousel)
+
+The Stress Tests section is a horizontal carousel (left/right arrow buttons,
+scroll-snap). One card per scene; videos at:
+
+| Path | Scene |
+|---|---|
+| `static/videos/rotating_sphere.mp4` | Cloth on rotating sphere |
+| `static/videos/helicopter.mp4` | Helicopter |
+| `static/videos/stripes.mp4` | Stripes sweeping over armadillo |
+| `static/videos/cloth_basket.mp4` | Cloth basket (matches teaser) |
+
+## 7. BibTeX
+
+**Search:** `TODO` inside the `<pre><code>@article{` block.
+
+Fill in `volume`, `number`, and `doi` once the publisher assigns them.
+
+## 8. Footer attribution
+
+**Search:** `&copy; 2026 The BS-Cloth authors.`
+
+Replace with your preferred attribution (lab, group name, etc.). Keep the
+Nerfies and PAT3D template links — they're a license requirement.
 
 ---
 
-## 3. Teaser image and caption
+## Section structure (current)
 
-**Search:** `TODO: teaser`
+| Section ID | Content |
+|---|---|
+| `#abstract` | Abstract paragraphs from the paper |
+| `#comparison-table` | PAT3D-style table — rows = test cases (upright hanging / drape / shear), columns = methods (B-spline / Linear / SFEM / BHEM), cells = videos |
+| `#stress` | Horizontal scroll-snap carousel with ‹/› arrow buttons; four scenes (rotating sphere, helicopter, stripes, cloth basket) |
+| `#video` | Supplementary video as a clickable YouTube thumbnail near the bottom |
+| `#citation` | BibTeX |
 
-1. Drop your teaser figure at `docs/static/images/teaser.png`.
-2. Edit the caption inside `<h2 class="subtitle has-text-centered">`.
+All section anchors are wired into the navbar.
 
----
+## Re-rendering paper figures at higher resolution
 
-## 4. Abstract
+The current PNGs were rendered at 120–150 DPI from the paper PDFs:
+```bash
+cd C:/_dev/BSFEM-Paper/img
+pdftoppm -png -r 200 teaser-v2.pdf C:/_dev/BS-Cloth/docs/static/images/teaser
+mv C:/_dev/BS-Cloth/docs/static/images/teaser-1.png \
+   C:/_dev/BS-Cloth/docs/static/images/teaser.png
+```
 
-**Search:** `TODO: abstract`
+## Styling
 
-Replace the three `<p>TODO …</p>` paragraphs with your paper's abstract text.
-
----
-
-## 5. Method figure and pipeline bullets
-
-**Search:** `TODO: method figure`
-
-1. Replace `docs/static/images/pipeline.png` with your method diagram.
-2. Update the three `<li>TODO …</li>` bullets to match your pipeline stages.
-
----
-
-## 6. Demo video
-
-**Search:** `TODO: demo video`
-
-1. Drop your demo video at `docs/static/videos/demo.mp4`.
-2. The `<source src="./static/videos/demo.mp4">` line already points there — no
-   HTML change needed unless you rename the file.
-3. Update the card title and description paragraph above the `<video>` tag.
-
----
-
-## 7. Applications section
-
-**Search:** `TODO: populate videoItems`
-
-The Applications section is populated from two JavaScript arrays near the bottom
-of `index.html`:
-
-- **`videoItems`** — video-based application cards. Each entry: `{ title, description, filename }`.
-  Drop `.mp4` files in `docs/media/` and set `filename` to match.
-- **`imageApplications`** — image-based application cards. Each entry: `{ title, description, image: { src, alt, caption } }`.
-  Drop images in `docs/static/images/` and update `src`.
-
-Add or remove array entries freely; the page rebuilds automatically.
-
----
-
-## 8. BibTeX
-
-**Search:** `TODO: bibtex`  (or look for the `<pre><code>@article{bscloth` block)
-
-Replace the placeholder fields with your actual BibTeX entry.
-
----
-
-## 9. Re-enabling the Baseline Comparison table
-
-The comparison section is commented out. To re-enable it:
-
-1. Uncomment the `<section class="section" id="results">` block in `index.html`.
-2. Also uncomment the `<a class="navbar-item" href="#results">Results</a>` nav link.
-3. Export each method's output mesh as a `.glb` file and place it at:
-   `docs/static/models/<slug>/<method>/output.glb`
-4. Update the `methods` and `experiments` arrays in the `<script>` block:
-   - `methods` — an array of method key strings matching your folder names.
-   - `experiments` — array of `{ slug, prompt }` objects; `slug` must match the folder name.
-5. If a result is missing/failed, add `"<slug>/<method>"` to the `missingResults` Set.
-
----
-
-## 10. Styling
-
-- **Project-specific styles** (colors, card borders, layout tweaks): `docs/stylesheet.css`
-- **Bulma framework defaults** (buttons, columns, hero, etc.): `docs/static/css/bulma.min.css`
-  — do not edit Bulma directly; override in `stylesheet.css` instead.
-- **Page-level overrides and component styles**: the `<style>` block inside `<head>` in `index.html`.
-
----
-
-## Meta-tags (SEO / social sharing)
-
-Update in `<head>`:
-- `<title>`, `<meta name="description">`, `<meta name="author">`, `<meta name="keywords">`
-- All `og:` and `twitter:` tags
-- `<link rel="canonical">`
-- The `<script type="application/ld+json">` structured-data block (optional, helps Google)
-
-Replace `TODO-your-github-username` with your actual GitHub username throughout.
+- Project-specific overrides: `docs/stylesheet.css`
+- Per-page CSS for cards/tables/carousel/video-link: the `<style>` block in `<head>`
+- Bulma framework defaults: `docs/static/css/bulma.min.css` (don't edit Bulma)
