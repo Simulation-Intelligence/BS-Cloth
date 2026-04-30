@@ -1,8 +1,5 @@
 <h1 align="center">Efficient B-Spline Finite Elements for Cloth Simulation</h1>
 
-[![Build (Windows)](https://github.com/Simulation-Intelligence/B-Spline-IPC/actions/workflows/premake-action-windows.yml/badge.svg)](https://github.com/Simulation-Intelligence/B-Spline-IPC/actions/workflows/premake-action-windows.yml)
-[![Build (Linux)](https://github.com/Simulation-Intelligence/B-Spline-IPC/actions/workflows/premake-action-linux.yml/badge.svg)](https://github.com/Simulation-Intelligence/B-Spline-IPC/actions/workflows/premake-action-linux.yml)
-
 <div align="center">
   <p>
     <strong>Yuqi Meng</strong><sup>1,2</sup>,
