@@ -36,6 +36,27 @@
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/index.js"></script>
   <style>
+    /* Sticky frosted-glass navbar that stays visible while scrolling.
+       Bulma's `is-fixed-top` on the nav + `has-navbar-fixed-top` on the body
+       handle the position:fixed layout shift. The styles below add the
+       translucent background and blur. */
+    .navbar.is-fixed-top {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: saturate(140%) blur(10px);
+      -webkit-backdrop-filter: saturate(140%) blur(10px);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+      box-shadow: 0 1px 8px rgba(15, 23, 42, 0.04);
+    }
+    .navbar.is-fixed-top .navbar-item {
+      transition: color 0.15s ease, background 0.15s ease;
+    }
+    .navbar.is-fixed-top .navbar-item:hover {
+      background: rgba(67, 120, 191, 0.08);
+      color: #4378bf;
+    }
+    /* Offset section jumps so headings aren't hidden under the fixed navbar. */
+    section[id] { scroll-margin-top: 4rem; }
+
     .application-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -298,9 +319,9 @@
     }
   </style>
 </head>
-<body>
+<body class="has-navbar-fixed-top">
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
       <span aria-hidden="true"></span>
