@@ -391,7 +391,7 @@ TSWLatexianTemp*
 
 # generated
 *.png
-!webpage/theory/img/*.png
+!webpage/**/*.png
 *.mp4
 !webpage/**/*.mp4
 *.zip
