@@ -1,0 +1,48 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+!Altrar/ext/_libs/*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Intermediate files
+/.vs/
+/bin/
+/bin-int/
+/Altrar/bin
+
+# Generated Viasual Studio Project Files
+*.sln
+*.vcxproj
+*.vcxproj.user
+*.vcxproj.filters
+
+# Vendor Executables
+!vendor/bin/**/*.exe

@@ -1,0 +1,812 @@
+continue_on_step: false
+max_ls_iterations: 100
+max_newton_iterations: 400
+stretching_youngs_modulus: 5e5
+shear_stretch_ratio: 0.005
+bending_youngs_modulus: 10.0
+seam_strength: 1e1
+friction_mu: 0.1
+contact_stiffness: 1e5
+max_steps: 500
+density: 472.6
+quad_order: 6
+per_patch_mesh: 2
+screenshot: false
+write_ipc_mesh: true
+write_iter_mesh: false
+enable_contact: true
+contact_threshold: 0.0001
+poisson_ratio: 0.243
+thickness: 0.00318
+timestep: 0.01
+residue_tolerance: 0.01
+ground_height: -5.0
+quad_scheme: local-edge-dense
+cache_quad_points: true
+use_cached_quad_points: true
+disable_interpatch_contact: true
+bs_surfaces:
+# Laundry Box
+  - idx: 0
+    resolution: 
+      x: 50
+      y: 50
+    linear_resolution:
+      x: 50
+      y: 50
+    rest_size:
+      x: 1.0
+      y: 1.0
+    start_node_file: Box/patch_0_3d_static
+    init_velocity_file: Box/patch_0_init_vel
+    fixed_nodes: [0, 49, 2450, 2499]
+  - resolution: 
+      x: 50
+      y: 50
+    linear_resolution:
+      x: 50
+      y: 50
+    rest_size:
+      x: 1.0
+      y: 1.0
+    start_node_file: Box/patch_1_3d_static
+    init_velocity_file: Box/patch_1_init_vel
+    fixed_nodes: [0, 49, 2450, 2499]
+  - resolution: 
+      x: 50
+      y: 50
+    linear_resolution:
+      x: 50
+      y: 50
+    rest_size:
+      x: 1.0
+      y: 1.0
+    start_node_file: Box/patch_2_3d_static
+    init_velocity_file: Box/patch_2_init_vel
+    fixed_nodes: [0, 49, 2450, 2499]
+  - resolution: 
+      x: 50
+      y: 50
+    linear_resolution:
+      x: 50
+      y: 50
+    rest_size:
+      x: 1.0
+      y: 1.0
+    start_node_file: Box/patch_3_3d_static
+    init_velocity_file: Box/patch_3_init_vel
+    fixed_nodes: [0, 49, 2450, 2499]
+  - resolution: 
+      x: 50
+      y: 50
+    linear_resolution:
+      x: 50
+      y: 50
+    rest_size:
+      x: 1.0
+      y: 1.0
+    start_node_file: Box/patch_4_3d_static
+    init_velocity_file: Box/patch_4_init_vel
+    fixed_nodes: [0, 49, 2450, 2499]
+# Shuffling garment. Offset = 5
+  - 
+    resolution:
+      x: 66
+      y: 34
+    linear_resolution:
+      x: 66
+      y: 34
+    rest_node_file: Shuffling-new/patch0
+    start_node_file: Shuffling-new/patch_0_3d_static
+    transformations:
+    - type: translation
+      content: [2.2, 0.5, 1.1]
+    - type: translation
+      content: [0.0, 0.0, -0.001]
+    init_velocity: [-3.5, 0.5, 1.8]
+  - 
+    resolution:
+      x: 66
+      y: 34
+    linear_resolution:
+      x: 66
+      y: 34
+    rest_node_file: Shuffling-new/patch1
+    start_node_file: Shuffling-new/patch_1_3d_static
+    transformations:
+    - type: translation
+      content: [2.2, 0.5, 1.1]
+    - type: translation
+      content: [0.0, 0.0, -0.001]
+    init_velocity: [-3.5, 0.5, 1.8]
+  - 
+    resolution:
+      x: 34
+      y: 34
+    linear_resolution:
+      x: 34
+      y: 34
+    rest_node_file: Shuffling-new/patch2
+    start_node_file: Shuffling-new/patch_2_3d_static
+    transformations:
+    - type: translation
+      content: [2.2, 0.5, 1.1]
+    init_velocity: [-3.5, 0.5, 1.8]
+  - 
+    resolution:
+      x: 34
+      y: 34
+    linear_resolution:
+      x: 34
+      y: 34
+    rest_node_file: Shuffling-new/patch3
+    start_node_file: Shuffling-new/patch_3_3d_static
+    transformations:
+    - type: translation
+      content: [2.2, 0.5, 1.1]
+    init_velocity: [-3.5, 0.5, 1.8]
+  - 
+    resolution:
+      x: 34
+      y: 18
+    linear_resolution:
+      x: 34
+      y: 18
+    rest_node_file: Shuffling-new/patch4
+    start_node_file: Shuffling-new/patch_4_3d_static
+    transformations:
+    - type: translation
+      content: [2.2, 0.5, 1.1]
+    init_velocity: [-3.5, 0.5, 1.8]
+  - 
+    resolution:
+      x: 34
+      y: 18
+    linear_resolution:
+      x: 34
+      y: 18
+    rest_node_file: Shuffling-new/patch5
+    start_node_file: Shuffling-new/patch_5_3d_static
+    transformations:
+    - type: translation
+      content: [2.2, 0.5, 1.1]
+    init_velocity: [-3.5, 0.5, 1.8]
+  - 
+    resolution:
+      x: 18
+      y: 10
+    linear_resolution:
+      x: 18
+      y: 10
+    rest_node_file: Shuffling-new/patch6
+    start_node_file: Shuffling-new/patch_6_3d_static
+    transformations:
+    - type: translation
+      content: [2.2, 0.5, 1.1]
+    init_velocity: [-3.5, 0.5, 1.8]
+  - 
+    resolution:
+      x: 18
+      y: 10
+    linear_resolution:
+      x: 18
+      y: 10
+    rest_node_file: Shuffling-new/patch7
+    start_node_file: Shuffling-new/patch_7_3d_static
+    transformations:
+    - type: translation
+      content: [2.2, 0.5, 1.1]
+    init_velocity: [-3.5, 0.5, 1.8]
+# # Hiphop garment. Offset = 5 + 8 = 13
+  - 
+    resolution:
+      x: 34
+      y: 34
+    linear_resolution:
+      x: 34
+      y: 34
+    rest_node_file: Hiphop-Lowres/patch0
+    start_node_file: Hiphop-Lowres/patch_0_3d_static
+    transformations:
+    - type: translation
+      content: [-1.5, 3.2, 0.6]
+    init_velocity: [2.2, -3.4, 2.0]
+  - 
+    resolution:
+      x: 34
+      y: 34
+    linear_resolution:
+      x: 34
+      y: 34
+    rest_node_file: Hiphop-Lowres/patch1
+    start_node_file: Hiphop-Lowres/patch_1_3d_static
+    transformations:
+    - type: translation
+      content: [-1.5, 3.2, 0.6]
+    init_velocity: [2.2, -3.4, 2.0]
+  - 
+    resolution:
+      x: 10
+      y: 10
+    linear_resolution:
+      x: 10
+      y: 10
+    rest_node_file: Hiphop-Lowres/patch2
+    start_node_file: Hiphop-Lowres/patch_2_3d_static
+    transformations:
+    - type: translation
+      content: [-1.5, 3.2, 0.6]
+    init_velocity: [2.2, -3.4, 2.0]
+  - 
+    resolution:
+      x: 10
+      y: 10
+    linear_resolution:
+      x: 10
+      y: 10
+    rest_node_file: Hiphop-Lowres/patch3
+    start_node_file: Hiphop-Lowres/patch_3_3d_static
+    transformations:
+    - type: translation
+      content: [-1.5, 3.2, 0.6]
+    init_velocity: [2.2, -3.4, 2.0]
+  - 
+    resolution:
+      x: 10
+      y: 10
+    linear_resolution:
+      x: 10
+      y: 10
+    rest_node_file: Hiphop-Lowres/patch4
+    start_node_file: Hiphop-Lowres/patch_4_3d_static
+    transformations:
+    - type: translation
+      content: [-1.5, 3.2, 0.6]
+    init_velocity: [2.2, -3.4, 2.0]
+  -
+    resolution:
+      x: 10
+      y: 10
+    linear_resolution:
+      x: 10
+      y: 10
+    rest_node_file: Hiphop-Lowres/patch5
+    start_node_file: Hiphop-Lowres/patch_5_3d_static
+    transformations:
+    - type: translation
+      content: [-1.5, 3.2, 0.6]
+    init_velocity: [2.2, -3.4, 2.0]
+  -
+    resolution:
+      x: 18
+      y: 18
+    linear_resolution:
+      x: 18
+      y: 18
+    rest_node_file: Hiphop-Lowres/patch6
+    start_node_file: Hiphop-Lowres/patch_6_3d_static
+    transformations:
+    - type: translation
+      content: [-1.5, 3.2, 0.6]
+    init_velocity: [2.2, -3.4, 2.0]
+  -
+    resolution:
+      x: 18
+      y: 18
+    linear_resolution:
+      x: 18
+      y: 18
+    rest_node_file: Hiphop-Lowres/patch7
+    start_node_file: Hiphop-Lowres/patch_7_3d_static
+    transformations:
+    - type: translation
+      content: [-1.5, 3.2, 0.6]
+    init_velocity: [2.2, -3.4, 2.0]
+  -
+    resolution:
+      x: 18
+      y: 18
+    linear_resolution:
+      x: 18
+      y: 18
+    rest_node_file: Hiphop-Lowres/patch8
+    start_node_file: Hiphop-Lowres/patch_8_3d_static
+    transformations:
+    - type: translation
+      content: [-2.6, -0.4, 0.8]
+    init_velocity: [3.3, 1.8, 2.0]
+  -
+    resolution:
+      x: 18
+      y: 18
+    linear_resolution:
+      x: 18
+      y: 18
+    rest_node_file: Hiphop-Lowres/patch9
+    start_node_file: Hiphop-Lowres/patch_9_3d_static
+    transformations:
+    - type: translation
+      content: [-2.6, -0.4, 0.8]
+    init_velocity: [3.3, 1.8, 2.0]
+  -
+    resolution:
+      x: 18
+      y: 18
+    linear_resolution:
+      x: 18
+      y: 18
+    rest_node_file: Hiphop-Lowres/patch10
+    start_node_file: Hiphop-Lowres/patch_10_3d_static
+    transformations:
+    - type: translation
+      content: [-2.6, -0.4, 0.8]
+    init_velocity: [3.3, 1.8, 2.0]
+  -
+    resolution:
+      x: 18
+      y: 18
+    linear_resolution:
+      x: 18
+      y: 18
+    rest_node_file: Hiphop-Lowres/patch11
+    start_node_file: Hiphop-Lowres/patch_11_3d_static
+    transformations:
+    - type: translation
+      content: [-2.6, -0.4, 0.8]
+    init_velocity: [3.3, 1.8, 2.0]
+  -
+    resolution:
+      x: 18
+      y: 18
+    linear_resolution:
+      x: 18
+      y: 18
+    rest_node_file: Hiphop-Lowres/patch12
+    start_node_file: Hiphop-Lowres/patch_12_3d_static
+    transformations:
+    - type: translation
+      content: [-2.6, -0.4, 0.8]
+    init_velocity: [3.3, 1.8, 2.0]
+  -
+    resolution:
+      x: 18
+      y: 18
+    linear_resolution:
+      x: 18
+      y: 18
+    rest_node_file: Hiphop-Lowres/patch13
+    start_node_file: Hiphop-Lowres/patch_13_3d_static
+    transformations:
+    - type: translation
+      content: [-2.6, -0.4, 0.8]
+    init_velocity: [3.3, 1.8, 2.0]
+  -
+    resolution:
+      x: 18
+      y: 18
+    linear_resolution:
+      x: 18
+      y: 18
+    rest_node_file: Hiphop-Lowres/patch14
+    start_node_file: Hiphop-Lowres/patch_14_3d_static
+    transformations:
+    - type: translation
+      content: [-2.6, -0.4, 0.8]
+    init_velocity: [3.3, 1.8, 2.0]
+  -
+    resolution:
+      x: 18
+      y: 18
+    linear_resolution:
+      x: 18
+      y: 18
+    rest_node_file: Hiphop-Lowres/patch15
+    start_node_file: Hiphop-Lowres/patch_15_3d_static
+    transformations:
+    - type: translation
+      content: [-2.6, -0.4, 0.8]
+    init_velocity: [3.3, 1.8, 2.0]
+# # Dancing garment. Offset = 5 + 8 + 16 = 29
+  - resolution:
+      x: 34
+      y: 34
+    linear_resolution:
+      x: 34
+      y: 34
+    rest_node_file: Dancing-Lowres/patch0
+    start_node_file: Dancing-Lowres/patch_0_3d_static
+    transformations:
+    - type: translation
+      content: [-2.8, 0.0, 1.7]
+    init_velocity: [3.35, 0.7, -0.3]
+  - resolution:
+      x: 34
+      y: 34
+    linear_resolution:
+      x: 34
+      y: 34
+    rest_node_file: Dancing-Lowres/patch1
+    start_node_file: Dancing-Lowres/patch_1_3d_static
+    transformations:
+    - type: translation
+      content: [-2.8, 0.0, 1.7]
+    init_velocity: [3.35, 0.7, -0.3]
+  - resolution:
+      x: 34
+      y: 10
+    linear_resolution:
+      x: 34
+      y: 10
+    rest_node_file: Dancing-Lowres/patch2
+    start_node_file: Dancing-Lowres/patch_2_3d_static
+    transformations:
+    - type: translation
+      content: [-2.8, 0.0, 1.7]
+    init_velocity: [3.35, 0.7, -0.3]
+  - resolution:
+      x: 34
+      y: 10
+    linear_resolution:
+      x: 34
+      y: 10
+    rest_node_file: Dancing-Lowres/patch3
+    start_node_file: Dancing-Lowres/patch_3_3d_static
+    transformations:
+    - type: translation
+      content: [-2.8, 0.0, 1.7]
+    init_velocity: [3.35, 0.7, -0.3]
+  - resolution:
+      x: 10
+      y: 10
+    linear_resolution:
+      x: 10
+      y: 10
+    rest_node_file: Dancing-Lowres/patch4
+    start_node_file: Dancing-Lowres/patch_4_3d_static
+    transformations:
+    - type: translation
+      content: [-2.8, 0.0, 1.7]
+    init_velocity: [3.35, 0.7, -0.3]
+  - resolution:
+      x: 10
+      y: 10
+    linear_resolution:
+      x: 10
+      y: 10
+    rest_node_file: Dancing-Lowres/patch5
+    start_node_file: Dancing-Lowres/patch_5_3d_static
+    transformations:
+    - type: translation
+      content: [-2.8, 0.0, 1.7]
+    init_velocity: [3.35, 0.7, -0.3]
+  - resolution:
+      x: 18
+      y: 18
+    linear_resolution:
+      x: 18
+      y: 18
+    rest_node_file: Dancing-Lowres/patch6
+    start_node_file: Dancing-Lowres/patch_6_3d_static
+    transformations:
+    - type: translation
+      content: [-2.8, 0.0, 1.7]
+    init_velocity: [3.35, 0.7, -0.3]
+  - resolution:
+      x: 18
+      y: 18
+    linear_resolution:
+      x: 18
+      y: 18
+    rest_node_file: Dancing-Lowres/patch7
+    start_node_file: Dancing-Lowres/patch_7_3d_static
+    transformations:
+    - type: translation
+      content: [-2.8, 0.0, 1.7]
+    init_velocity: [3.35, 0.7, -0.3]
+  - resolution:
+      x: 66
+      y: 18
+    linear_resolution:
+      x: 66
+      y: 18
+    rest_node_file: Dancing-Lowres/patch8
+    start_node_file: Dancing-Lowres/patch_8_3d_static
+    transformations:
+    - type: translation
+      content: [-2.8, 0.0, 1.7]
+    init_velocity: [3.35, 0.7, -0.3]
+  - resolution:
+      x: 66
+      y: 34
+    linear_resolution:
+      x: 66
+      y: 34
+    rest_node_file: Dancing-Lowres/patch9
+    start_node_file: Dancing-Lowres/patch_9_3d_static
+    transformations:
+    - type: translation
+      content: [-2.8, 0.0, 1.7]
+    init_velocity: [3.35, 0.7, -0.3]
+  - resolution:
+      x: 66
+      y: 18
+    linear_resolution:
+      x: 66
+      y: 18
+    rest_node_file: Dancing-Lowres/patch10
+    start_node_file: Dancing-Lowres/patch_10_3d_static
+    transformations:
+    - type: translation
+      content: [-2.8, 0.0, 1.7]
+    init_velocity: [3.35, 0.7, -0.3]
+  - resolution:
+      x: 66
+      y: 34
+    linear_resolution:
+      x: 66
+      y: 34
+    rest_node_file: Dancing-Lowres/patch11
+    start_node_file: Dancing-Lowres/patch_11_3d_static
+    transformations:
+    - type: translation
+      content: [-2.8, 0.0, 1.7]
+    init_velocity: [3.35, 0.7, -0.3]
+  - resolution:
+      x: 18
+      y: 18
+    linear_resolution:
+      x: 18
+      y: 18
+    rest_node_file: Dancing-Lowres/patch12
+    start_node_file: Dancing-Lowres/patch_12_3d_static
+    transformations:
+    - type: translation
+      content: [-2.8, 0.0, 1.7]
+    init_velocity: [3.35, 0.7, -0.3]
+  - resolution:
+      x: 18
+      y: 18
+    linear_resolution:
+      x: 18
+      y: 18
+    rest_node_file: Dancing-Lowres/patch13
+    start_node_file: Dancing-Lowres/patch_13_3d_static
+    transformations:
+    - type: translation
+      content: [-2.8, 0.0, 1.7]
+    init_velocity: [3.35, 0.7, -0.3]
+seams:
+  - idx_pair: [0, 1]
+    seaming_points_file: Box/seam_0-1
+  - idx_pair: [0, 3]
+    seaming_points_file: Box/seam_0-3
+  - idx_pair: [2, 1]
+    seaming_points_file: Box/seam_2-1
+  - idx_pair: [2, 3]
+    seaming_points_file: Box/seam_2-3
+  - idx_pair: [0, 4]
+    seaming_points_file: Box/seam_0-4
+  - idx_pair: [1, 4]
+    seaming_points_file: Box/seam_1-4
+  - idx_pair: [2, 4]
+    seaming_points_file: Box/seam_2-4
+  - idx_pair: [3, 4]
+    seaming_points_file: Box/seam_3-4
+  - idx_pair: [5, 6]
+    seaming_points_file: Shuffling-Lowres/seam_0-1
+  - idx_pair: [5, 7]
+    seaming_points_file: Shuffling-Lowres/seam_0-2
+  - idx_pair: [5, 8]
+    seaming_points_file: Shuffling-Lowres/seam_0-3
+  - idx_pair: [5, 9]
+    seaming_points_file: Shuffling-Lowres/seam_0-4
+  - idx_pair: [5, 10]
+    seaming_points_file: Shuffling-Lowres/seam_0-5
+  - idx_pair: [5, 11]
+    seaming_points_file: Shuffling-Lowres/seam_0-6
+  - idx_pair: [5, 12]
+    seaming_points_file: Shuffling-Lowres/seam_0-7
+  - idx_pair: [6, 7]
+    seaming_points_file: Shuffling-Lowres/seam_1-2
+  - idx_pair: [6, 8]
+    seaming_points_file: Shuffling-Lowres/seam_1-3
+  - idx_pair: [6, 9]
+    seaming_points_file: Shuffling-Lowres/seam_1-4
+  - idx_pair: [6, 10]
+    seaming_points_file: Shuffling-Lowres/seam_1-5
+  - idx_pair: [6, 11]
+    seaming_points_file: Shuffling-Lowres/seam_1-6
+  - idx_pair: [6, 12]
+    seaming_points_file: Shuffling-Lowres/seam_1-7
+  - idx_pair: [7, 7]
+    seaming_points_file: Shuffling-Lowres/seam_2-2
+  - idx_pair: [7, 9]
+    seaming_points_file: Shuffling-Lowres/seam_2-4
+  - idx_pair: [7, 10]
+    seaming_points_file: Shuffling-Lowres/seam_2-5
+  - idx_pair: [7, 11]
+    seaming_points_file: Shuffling-Lowres/seam_2-6
+  - idx_pair: [8, 8]
+    seaming_points_file: Shuffling-Lowres/seam_3-3
+  - idx_pair: [8, 9]
+    seaming_points_file: Shuffling-Lowres/seam_3-4
+  - idx_pair: [8, 10]
+    seaming_points_file: Shuffling-Lowres/seam_3-5
+  - idx_pair: [8, 12]
+    seaming_points_file: Shuffling-Lowres/seam_3-7
+  - idx_pair: [9, 10]
+    seaming_points_file: Shuffling-Lowres/seam_4-5
+  - idx_pair: [9, 11]
+    seaming_points_file: Shuffling-Lowres/seam_4-6
+  - idx_pair: [9, 12]
+    seaming_points_file: Shuffling-Lowres/seam_4-7
+  - idx_pair: [10, 11]
+    seaming_points_file: Shuffling-Lowres/seam_5-6
+  - idx_pair: [10, 12]
+    seaming_points_file: Shuffling-Lowres/seam_5-7
+  - idx_pair: [11, 11]
+    seaming_points_file: Shuffling-Lowres/seam_6-6
+  - idx_pair: [12, 12]
+    seaming_points_file: Shuffling-Lowres/seam_7-7
+  - idx_pair: [13, 14]
+    seaming_points_file: Hiphop-Lowres/seam_0-1
+  - idx_pair: [13, 15]
+    seaming_points_file: Hiphop-Lowres/seam_0-2
+  - idx_pair: [13, 16]
+    seaming_points_file: Hiphop-Lowres/seam_0-3
+  - idx_pair: [13, 19]
+    seaming_points_file: Hiphop-Lowres/seam_0-6
+  - idx_pair: [13, 20]
+    seaming_points_file: Hiphop-Lowres/seam_0-7
+  - idx_pair: [14, 17]
+    seaming_points_file: Hiphop-Lowres/seam_1-4
+  - idx_pair: [14, 18]
+    seaming_points_file: Hiphop-Lowres/seam_1-5
+  - idx_pair: [14, 19]
+    seaming_points_file: Hiphop-Lowres/seam_1-6
+  - idx_pair: [14, 20]
+    seaming_points_file: Hiphop-Lowres/seam_1-7
+  - idx_pair: [15, 16]
+    seaming_points_file: Hiphop-Lowres/seam_2-3
+  - idx_pair: [15, 18]
+    seaming_points_file: Hiphop-Lowres/seam_2-5
+  - idx_pair: [15, 19]
+    seaming_points_file: Hiphop-Lowres/seam_2-6
+  - idx_pair: [16, 17]
+    seaming_points_file: Hiphop-Lowres/seam_3-4
+  - idx_pair: [16, 20]
+    seaming_points_file: Hiphop-Lowres/seam_3-7
+  - idx_pair: [17, 18]
+    seaming_points_file: Hiphop-Lowres/seam_4-5
+  - idx_pair: [17, 20]
+    seaming_points_file: Hiphop-Lowres/seam_4-7
+  - idx_pair: [18, 19]
+    seaming_points_file: Hiphop-Lowres/seam_5-6
+  - idx_pair: [19, 19]
+    seaming_points_file: Hiphop-Lowres/seam_6-6
+  - idx_pair: [20, 20]
+    seaming_points_file: Hiphop-Lowres/seam_7-7
+  - idx_pair: [21, 23]
+    seaming_points_file: Hiphop-Lowres/seam_8-10
+  - idx_pair: [21, 24]
+    seaming_points_file: Hiphop-Lowres/seam_8-11
+  - idx_pair: [21, 25]
+    seaming_points_file: Hiphop-Lowres/seam_8-12
+  - idx_pair: [21, 26]
+    seaming_points_file: Hiphop-Lowres/seam_8-13
+  - idx_pair: [21, 27]
+    seaming_points_file: Hiphop-Lowres/seam_8-14
+  - idx_pair: [21, 28]
+    seaming_points_file: Hiphop-Lowres/seam_8-15
+  - idx_pair: [21, 22]
+    seaming_points_file: Hiphop-Lowres/seam_8-9
+  - idx_pair: [22, 23]
+    seaming_points_file: Hiphop-Lowres/seam_9-10
+  - idx_pair: [22, 24]
+    seaming_points_file: Hiphop-Lowres/seam_9-11
+  - idx_pair: [22, 25]
+    seaming_points_file: Hiphop-Lowres/seam_9-12
+  - idx_pair: [22, 26]
+    seaming_points_file: Hiphop-Lowres/seam_9-13
+  - idx_pair: [22, 27]
+    seaming_points_file: Hiphop-Lowres/seam_9-14
+  - idx_pair: [22, 28]
+    seaming_points_file: Hiphop-Lowres/seam_9-15
+  - idx_pair: [23, 24]
+    seaming_points_file: Hiphop-Lowres/seam_10-11
+  - idx_pair: [23, 25]
+    seaming_points_file: Hiphop-Lowres/seam_10-12
+  - idx_pair: [23, 26]
+    seaming_points_file: Hiphop-Lowres/seam_10-13
+  - idx_pair: [23, 27]
+    seaming_points_file: Hiphop-Lowres/seam_10-14
+  - idx_pair: [23, 28]
+    seaming_points_file: Hiphop-Lowres/seam_10-15
+  - idx_pair: [24, 25]
+    seaming_points_file: Hiphop-Lowres/seam_11-12
+  - idx_pair: [24, 26]
+    seaming_points_file: Hiphop-Lowres/seam_11-13
+  - idx_pair: [24, 27]
+    seaming_points_file: Hiphop-Lowres/seam_11-14
+  - idx_pair: [24, 28]
+    seaming_points_file: Hiphop-Lowres/seam_11-15
+  - idx_pair: [25, 26]
+    seaming_points_file: Hiphop-Lowres/seam_12-13
+  - idx_pair: [25, 27]
+    seaming_points_file: Hiphop-Lowres/seam_12-14
+  - idx_pair: [25, 28]
+    seaming_points_file: Hiphop-Lowres/seam_12-15
+  - idx_pair: [26, 27]
+    seaming_points_file: Hiphop-Lowres/seam_13-14
+  - idx_pair: [26, 28]
+    seaming_points_file: Hiphop-Lowres/seam_13-15
+  - idx_pair: [27, 28]
+    seaming_points_file: Hiphop-Lowres/seam_14-15
+  - idx_pair: [29, 30]
+    seaming_points_file: Dancing/seam_0-1
+  - idx_pair: [29, 41]
+    seaming_points_file: Dancing/seam_0-12
+  - idx_pair: [29, 42]
+    seaming_points_file: Dancing/seam_0-13
+  - idx_pair: [29, 31]
+    seaming_points_file: Dancing/seam_0-2
+  - idx_pair: [29, 32]
+    seaming_points_file: Dancing/seam_0-3
+  - idx_pair: [29, 33]
+    seaming_points_file: Dancing/seam_0-4
+  - idx_pair: [29, 34]
+    seaming_points_file: Dancing/seam_0-5
+  - idx_pair: [30, 41]
+    seaming_points_file: Dancing/seam_1-12
+  - idx_pair: [30, 42]
+    seaming_points_file: Dancing/seam_1-13
+  - idx_pair: [30, 31]
+    seaming_points_file: Dancing/seam_1-2
+  - idx_pair: [30, 32]
+    seaming_points_file: Dancing/seam_1-3
+  - idx_pair: [30, 35]
+    seaming_points_file: Dancing/seam_1-6
+  - idx_pair: [30, 36]
+    seaming_points_file: Dancing/seam_1-7
+  - idx_pair: [39, 40]
+    seaming_points_file: Dancing/seam_10-11
+  - idx_pair: [41, 41]
+    seaming_points_file: Dancing/seam_12-12
+  - idx_pair: [42, 42]
+    seaming_points_file: Dancing/seam_13-13
+  - idx_pair: [31, 39]
+    seaming_points_file: Dancing/seam_2-10
+  - idx_pair: [31, 32]
+    seaming_points_file: Dancing/seam_2-3
+  - idx_pair: [31, 37]
+    seaming_points_file: Dancing/seam_2-8
+  - idx_pair: [32, 39]
+    seaming_points_file: Dancing/seam_3-10
+  - idx_pair: [32, 37]
+    seaming_points_file: Dancing/seam_3-8
+  - idx_pair: [33, 41]
+    seaming_points_file: Dancing/seam_4-12
+  - idx_pair: [33, 34]
+    seaming_points_file: Dancing/seam_4-5
+  - idx_pair: [33, 36]
+    seaming_points_file: Dancing/seam_4-7
+  - idx_pair: [34, 42]
+    seaming_points_file: Dancing/seam_5-13
+  - idx_pair: [34, 35]
+    seaming_points_file: Dancing/seam_5-6
+  - idx_pair: [35, 42]
+    seaming_points_file: Dancing/seam_6-13
+  - idx_pair: [35, 36]
+    seaming_points_file: Dancing/seam_6-7
+  - idx_pair: [36, 41]
+    seaming_points_file: Dancing/seam_7-12
+  - idx_pair: [37, 39]
+    seaming_points_file: Dancing/seam_8-10
+  - idx_pair: [37, 40]
+    seaming_points_file: Dancing/seam_8-11
+  - idx_pair: [37, 38]
+    seaming_points_file: Dancing/seam_8-9
+  - idx_pair: [38, 39]
+    seaming_points_file: Dancing/seam_9-10
+  - idx_pair: [38, 40]
+    seaming_points_file: Dancing/seam_9-11

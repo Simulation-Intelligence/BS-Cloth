@@ -1,0 +1,125 @@
+continue_on_step: false
+max_ls_iterations: 100
+max_newton_iterations: 400
+stretching_youngs_modulus: 5e5
+shear_stretch_ratio: 0.005
+bending_youngs_modulus: 10.0
+seam_strength: 1e1
+friction_mu: 0.1
+contact_stiffness: 1e5
+max_steps: 300
+density: 472.6
+quad_order: 6
+per_patch_mesh: 2
+screenshot: false
+write_ipc_mesh: true
+write_iter_mesh: false
+enable_contact: true
+contact_threshold: 0.001
+poisson_ratio: 0.243
+thickness: 0.00318
+timestep: 0.01
+residue_tolerance: 0.01
+ground_height: -5.0
+quad_scheme: local-edge-dense
+cache_quad_points: true
+use_cached_quad_points: true
+disable_interpatch_contact: true
+bs_surfaces:
+  - idx: 0
+    resolution: 
+      x: 50
+      y: 50
+    linear_resolution:
+      x: 50
+      y: 50
+    rest_size:
+      x: 1.0
+      y: 1.0
+    start_config: flat
+    transformations:
+    - type: rotation
+      content: [0.0, 90.0, 0.0]
+    - type: translation
+      content: [-1.0, 0.0, 0.0]
+    init_velocity: [0.0, 0.0, 0.0]
+    fixed_nodes: [0, 49, 2450, 2499]
+  - resolution: 
+      x: 50
+      y: 50
+    linear_resolution:
+      x: 50
+      y: 50
+    rest_size:
+      x: 1.0
+      y: 1.0
+    transformations:
+    - type: rotation
+      content: [-90.0, 0.0, 0.0]
+    - type: translation
+      content: [-1.0, 0.0, 0.0]
+    init_velocity: [0.0, 0.0, 0.0]
+    fixed_nodes: [0, 49, 2450, 2499]
+  - resolution: 
+      x: 50
+      y: 50
+    linear_resolution:
+      x: 50
+      y: 50
+    rest_size:
+      x: 1.0
+      y: 1.0
+    transformations:
+    - type: rotation
+      content: [0.0, 90.0, 0.0]
+    - type: translation
+      content: [0.0, 0.0, 0.0]
+    init_velocity: [0.0, 0.0, 0.0]
+    fixed_nodes: [0, 49, 2450, 2499]
+  - resolution: 
+      x: 50
+      y: 50
+    linear_resolution:
+      x: 50
+      y: 50
+    rest_size:
+      x: 1.0
+      y: 1.0
+    transformations:
+    - type: rotation
+      content: [-90.0, 0.0, 0.0]
+    - type: translation
+      content: [-1.0, 1.0, 0.0]
+    init_velocity: [0.0, 0.0, 0.0]
+    fixed_nodes: [0, 49, 2450, 2499]
+  - resolution: 
+      x: 50
+      y: 50
+    linear_resolution:
+      x: 50
+      y: 50
+    rest_size:
+      x: 1.0
+      y: 1.0
+    transformations:
+    - type: translation
+      content: [-1.0, 0.0, -1.0]
+    init_velocity: [0.0, 0.0, 0.0]
+    fixed_nodes: [0, 49, 2450, 2499]
+seams:
+  - idx_pair: [0, 1]
+    seaming_points_file: Box/seam_0-1.yaml
+  - idx_pair: [0, 3]
+    seaming_points_file: Box/seam_0-3.yaml
+  - idx_pair: [2, 1]
+    seaming_points_file: Box/seam_2-1.yaml
+  - idx_pair: [2, 3]
+    seaming_points_file: Box/seam_2-3.yaml
+  - idx_pair: [0, 4]
+    seaming_points_file: Box/seam_0-4.yaml
+  - idx_pair: [1, 4]
+    seaming_points_file: Box/seam_1-4.yaml
+  - idx_pair: [2, 4]
+    seaming_points_file: Box/seam_2-4.yaml
+  - idx_pair: [3, 4]
+    seaming_points_file: Box/seam_3-4.yaml

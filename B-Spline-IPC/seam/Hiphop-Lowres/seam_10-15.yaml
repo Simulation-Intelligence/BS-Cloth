@@ -1,0 +1,3 @@
+in_canonical_coord: true
+seams:
+- [0.0, 0.0, 0.0, 1.0]

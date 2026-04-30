@@ -1,0 +1,52 @@
+continue_on_step: false
+max_ls_iterations: 10
+max_newton_iterations: 400
+stretching_youngs_modulus: 5e5
+shear_stretch_ratio: 0.005
+bending_youngs_modulus: 1e1
+seam_strength: 1e1
+friction_mu: 0.5
+contact_stiffness: 1e5
+max_steps: 800
+density: 472.6
+quad_order: 6
+per_patch_mesh: 2
+screenshot: false
+write_ipc_mesh: true
+write_iter_mesh: false
+enable_contact: true
+contact_threshold: 0.001
+poisson_ratio: 0.243
+thickness: 0.00518
+timestep: 0.01
+residue_tolerance: 0.01
+ground_height: -1.0
+quad_scheme: local-edge-dense
+cache_quad_points: true
+use_cached_quad_points: true
+disable_interpatch_contact: true
+bs_surfaces:
+  - resolution:
+      x: 200
+      y: 200
+    linear_resolution:
+      x: 200
+      y: 200
+    rest_size:
+      x: 3.0
+      y: 3.0
+    transformations:
+    - type: rotation
+      content: [0.0, 45.0, 0.0]
+    - type: translation
+      content: [-0.73145, -1.6669, 1.82]
+    init_velocity: [-2.0, 0.0, -2.0]
+animated_meshes:
+  directory: helicopter-spin
+  pattern: "@"
+  length: 601
+  diff: 0.0001
+  stiffness: 1e3
+  transformations:
+  - type: rotation
+    content: [90.0, 0.0, 0.0]

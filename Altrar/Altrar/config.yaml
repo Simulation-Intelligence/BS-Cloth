@@ -1,0 +1,6 @@
+width: 800
+height: 800
+validation: true
+verbose: false
+validation-layers:
+  - VK_LAYER_KHRONOS_validation

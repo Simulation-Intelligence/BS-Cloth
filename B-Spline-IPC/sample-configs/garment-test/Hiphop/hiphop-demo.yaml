@@ -1,0 +1,448 @@
+continue_on_step: false
+max_ls_iterations: 100
+max_newton_iterations: 200
+stretching_youngs_modulus: 5e5
+shear_stretch_ratio: 0.005
+bending_youngs_modulus: 8e2
+seam_strength: 10
+friction_mu: 0.1
+contact_stiffness: 1e5
+max_steps: 600
+density: 472.6
+quad_order: 6
+per_patch_mesh: 2
+screenshot: false
+write_ipc_mesh: true
+write_iter_mesh: false
+enable_contact: true
+contact_threshold: 0.0003
+poisson_ratio: 0.243
+thickness: 0.00518
+timestep: 0.01
+residue_tolerance: 0.01
+ground_height: -5.0
+quad_scheme: local-edge-dense
+cache_quad_points: true
+use_cached_quad_points: true
+disable_interpatch_contact: true
+bs_surfaces:
+  - 
+    resolution:
+      x: 66
+      y: 66
+    linear_resolution:
+      x: 66
+      y: 66
+    rest_node_file: Hiphop/patch0
+    start_node_file: Hiphop/patch_0_3d
+    transformations:
+    -
+      type: rotation
+      content: [90.0, 0.0, 0.0]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.5]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.0013]
+  - 
+    resolution:
+      x: 66
+      y: 66
+    linear_resolution:
+      x: 66
+      y: 66
+    rest_node_file: Hiphop/patch1
+    start_node_file: Hiphop/patch_1_3d
+    transformations:
+    -
+      type: rotation
+      content: [90.0, 0.0, 0.0]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.5]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.0013]
+  - 
+    resolution:
+      x: 18
+      y: 18
+    linear_resolution:
+      x: 18
+      y: 18
+    rest_node_file: Hiphop/patch2
+    start_node_file: Hiphop/patch_2_3d
+    transformations:
+    -
+      type: rotation
+      content: [90.0, 0.0, 0.0]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.5]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.0013]
+  - 
+    resolution:
+      x: 18
+      y: 18
+    linear_resolution:
+      x: 18
+      y: 18
+    rest_node_file: Hiphop/patch3
+    start_node_file: Hiphop/patch_3_3d
+    transformations:
+    -
+      type: rotation
+      content: [90.0, 0.0, 0.0]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.5]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.0013]
+  - 
+    resolution:
+      x: 18
+      y: 18
+    linear_resolution:
+      x: 18
+      y: 18
+    rest_node_file: Hiphop/patch4
+    start_node_file: Hiphop/patch_4_3d
+    transformations:
+    -
+      type: rotation
+      content: [90.0, 0.0, 0.0]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.5]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.0013]
+  -
+    resolution:
+      x: 18
+      y: 18
+    linear_resolution:
+      x: 18
+      y: 18
+    rest_node_file: Hiphop/patch5
+    start_node_file: Hiphop/patch_5_3d
+    transformations:
+    -
+      type: rotation
+      content: [90.0, 0.0, 0.0]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.5]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.0013]
+  -
+    resolution:
+      x: 34
+      y: 34
+    linear_resolution:
+      x: 34
+      y: 34
+    rest_node_file: Hiphop/patch6
+    start_node_file: Hiphop/patch_6_3d
+    transformations:
+    -
+      type: rotation
+      content: [90.0, 0.0, 0.0]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.5]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.0013]
+  -
+    resolution:
+      x: 34
+      y: 34
+    linear_resolution:
+      x: 34
+      y: 34
+    rest_node_file: Hiphop/patch7
+    start_node_file: Hiphop/patch_7_3d
+    transformations:
+    -
+      type: rotation
+      content: [90.0, 0.0, 0.0]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.5]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.0013]
+  -
+    resolution:
+      x: 34
+      y: 34
+    linear_resolution:
+      x: 34
+      y: 34
+    rest_node_file: Hiphop/patch8
+    start_node_file: Hiphop/patch_8_3d
+    transformations:
+    -
+      type: rotation
+      content: [90.0, 0.0, 0.0]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.5]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.0013]
+  -
+    resolution:
+      x: 34
+      y: 34
+    linear_resolution:
+      x: 34
+      y: 34
+    rest_node_file: Hiphop/patch9
+    start_node_file: Hiphop/patch_9_3d
+    transformations:
+    -
+      type: rotation
+      content: [90.0, 0.0, 0.0]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.5]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.0013]
+  -
+    resolution:
+      x: 34
+      y: 34
+    linear_resolution:
+      x: 34
+      y: 34
+    rest_node_file: Hiphop/patch10
+    start_node_file: Hiphop/patch_10_3d
+    transformations:
+    -
+      type: rotation
+      content: [90.0, 0.0, 0.0]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.5]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.0013]
+  -
+    resolution:
+      x: 34
+      y: 34
+    linear_resolution:
+      x: 34
+      y: 34
+    rest_node_file: Hiphop/patch11
+    start_node_file: Hiphop/patch_11_3d
+    transformations:
+    -
+      type: rotation
+      content: [90.0, 0.0, 0.0]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.5]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.0013]
+  -
+    resolution:
+      x: 34
+      y: 34
+    linear_resolution:
+      x: 34
+      y: 34
+    rest_node_file: Hiphop/patch12
+    start_node_file: Hiphop/patch_12_3d
+    transformations:
+    -
+      type: rotation
+      content: [90.0, 0.0, 0.0]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.5]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.0013]
+  -
+    resolution:
+      x: 34
+      y: 34
+    linear_resolution:
+      x: 34
+      y: 34
+    rest_node_file: Hiphop/patch13
+    start_node_file: Hiphop/patch_13_3d
+    transformations:
+    -
+      type: rotation
+      content: [90.0, 0.0, 0.0]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.5]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.0013]
+  -
+    resolution:
+      x: 34
+      y: 34
+    linear_resolution:
+      x: 34
+      y: 34
+    rest_node_file: Hiphop/patch14
+    start_node_file: Hiphop/patch_14_3d
+    transformations:
+    -
+      type: rotation
+      content: [90.0, 0.0, 0.0]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.5]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.0013]
+  -
+    resolution:
+      x: 34
+      y: 34
+    linear_resolution:
+      x: 34
+      y: 34
+    rest_node_file: Hiphop/patch15
+    start_node_file: Hiphop/patch_15_3d
+    transformations:
+    -
+      type: rotation
+      content: [90.0, 0.0, 0.0]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.5]
+    - 
+      type: translation
+      content: [0.0, 0.0, -0.0013]
+seams:
+- idx_pair: [0, 1]
+  seaming_points_file: Hiphop/seam_0-1
+- idx_pair: [0, 2]
+  seaming_points_file: Hiphop/seam_0-2
+- idx_pair: [0, 3]
+  seaming_points_file: Hiphop/seam_0-3
+- idx_pair: [0, 6]
+  seaming_points_file: Hiphop/seam_0-6
+- idx_pair: [0, 7]
+  seaming_points_file: Hiphop/seam_0-7
+- idx_pair: [1, 4]
+  seaming_points_file: Hiphop/seam_1-4
+- idx_pair: [1, 5]
+  seaming_points_file: Hiphop/seam_1-5
+- idx_pair: [1, 6]
+  seaming_points_file: Hiphop/seam_1-6
+- idx_pair: [1, 7]
+  seaming_points_file: Hiphop/seam_1-7
+- idx_pair: [2, 3]
+  seaming_points_file: Hiphop/seam_2-3
+- idx_pair: [2, 5]
+  seaming_points_file: Hiphop/seam_2-5
+- idx_pair: [2, 6]
+  seaming_points_file: Hiphop/seam_2-6
+- idx_pair: [3, 4]
+  seaming_points_file: Hiphop/seam_3-4
+- idx_pair: [3, 7]
+  seaming_points_file: Hiphop/seam_3-7
+- idx_pair: [4, 5]
+  seaming_points_file: Hiphop/seam_4-5
+- idx_pair: [4, 7]
+  seaming_points_file: Hiphop/seam_4-7
+- idx_pair: [5, 6]
+  seaming_points_file: Hiphop/seam_5-6
+- idx_pair: [6, 6]
+  seaming_points_file: Hiphop/seam_6-6
+- idx_pair: [7, 7]
+  seaming_points_file: Hiphop/seam_7-7
+- idx_pair: [8, 10]
+  seaming_points_file: Hiphop/seam_8-10
+- idx_pair: [8, 11]
+  seaming_points_file: Hiphop/seam_8-11
+- idx_pair: [8, 12]
+  seaming_points_file: Hiphop/seam_8-12
+- idx_pair: [8, 13]
+  seaming_points_file: Hiphop/seam_8-13
+- idx_pair: [8, 14]
+  seaming_points_file: Hiphop/seam_8-14
+- idx_pair: [8, 15]
+  seaming_points_file: Hiphop/seam_8-15
+- idx_pair: [8, 9]
+  seaming_points_file: Hiphop/seam_8-9
+- idx_pair: [9, 10]
+  seaming_points_file: Hiphop/seam_9-10
+- idx_pair: [9, 11]
+  seaming_points_file: Hiphop/seam_9-11
+- idx_pair: [9, 12]
+  seaming_points_file: Hiphop/seam_9-12
+- idx_pair: [9, 13]
+  seaming_points_file: Hiphop/seam_9-13
+- idx_pair: [9, 14]
+  seaming_points_file: Hiphop/seam_9-14
+- idx_pair: [9, 15]
+  seaming_points_file: Hiphop/seam_9-15
+- idx_pair: [10, 11]
+  seaming_points_file: Hiphop/seam_10-11
+- idx_pair: [10, 12]
+  seaming_points_file: Hiphop/seam_10-12
+- idx_pair: [10, 13]
+  seaming_points_file: Hiphop/seam_10-13
+- idx_pair: [10, 14]
+  seaming_points_file: Hiphop/seam_10-14
+- idx_pair: [10, 15]
+  seaming_points_file: Hiphop/seam_10-15
+- idx_pair: [11, 12]
+  seaming_points_file: Hiphop/seam_11-12
+- idx_pair: [11, 13]
+  seaming_points_file: Hiphop/seam_11-13
+- idx_pair: [11, 14]
+  seaming_points_file: Hiphop/seam_11-14
+- idx_pair: [11, 15]
+  seaming_points_file: Hiphop/seam_11-15
+- idx_pair: [12, 13]
+  seaming_points_file: Hiphop/seam_12-13
+- idx_pair: [12, 14]
+  seaming_points_file: Hiphop/seam_12-14
+- idx_pair: [12, 15]
+  seaming_points_file: Hiphop/seam_12-15
+- idx_pair: [13, 14]
+  seaming_points_file: Hiphop/seam_13-14
+- idx_pair: [13, 15]
+  seaming_points_file: Hiphop/seam_13-15
+- idx_pair: [14, 15]
+  seaming_points_file: Hiphop/seam_14-15
+# fixed_trig_meshes:
+#   -
+#     name: Hiphop-animation-600-shrink-0_005/0
+#     transformations:
+#     -
+#       type: rotation
+#       content: [90.0, 0.0, 0.0]
+#     - 
+#       type: translation
+#       content: [0.0, 0.0, -0.5]
+
+# local                   | Place quadrature points with order per cell
+# local-edge-dense        | local, but with more quadrature points on edges/corners (3-3, otherwise 2-2)
+# local-chessboard        | local-edge-dense, but with horizontal/vertical patterns, like chessboard (2-1 or 1-2)
+# local-chessboard-dense  | alternate form of local-chessboard, with denser/sparse patterns (2-2 or 1-1)
+# global                  | Place quadrature points with order per whole element
+# global-limited          | global, with limited number of quadrature points per cell (2-2)
+# global-edge-dense       | global-limited, but with more quadrature points on edges/corners (3-3)
+# global-chessboard       | global-edge-dense, but with horizontal/vertical patterns, like chessboard (2-1 or 1-2)
+
+# for local quadrature points, the per-patch quadrature points is set (hardcoded) to 2.

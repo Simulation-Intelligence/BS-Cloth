@@ -1,0 +1,53 @@
+continue_on_step: false
+max_ls_iterations: 10
+max_newton_iterations: 200
+stretching_youngs_modulus: 5e5
+shear_stretch_ratio: 0.005
+bending_youngs_modulus: 1e1
+seam_strength: 1e1
+friction_mu: 0.1
+contact_stiffness: 1e5
+max_steps: 31
+density: 472.6
+quad_order: 6
+per_patch_mesh: 2
+screenshot: false
+write_ipc_mesh: true
+write_iter_mesh: false
+enable_contact: true
+contact_threshold: 0.0003
+poisson_ratio: 0.243
+thickness: 0.00518
+timestep: 0.01
+residue_tolerance: 0.01
+ground_height: -5.0
+quad_scheme: local-edge-dense
+cache_quad_points: true
+use_cached_quad_points: false
+disable_interpatch_contact: true
+bs_surfaces:
+- resolution:
+    x: 34
+    y: 34
+  linear_resolution:
+    x: 34
+    y: 34
+  fixed_nodes: [0, 33]
+#   # rest_node_file: skewed-square/skew_mesh_skew_only_30deg_sd_3x3_control
+#   transformations:
+#   -
+#     type: translation
+#     content: [-0.3, 0.3, 0.0]
+# fixed_trig_meshes:
+#   -
+#     name: stanford-bunny
+#     transformations:
+#     -
+#       type: scaling
+#       content: [2.0, 2.0, 2.0]
+#     -
+#       type: rotation
+#       content: [90.0, 0.0, 0.0]
+#     -
+#       type: translation
+#       content: [0.5, 0.5, -0.5]
