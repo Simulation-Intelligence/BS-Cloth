@@ -391,8 +391,9 @@ TSWLatexianTemp*
 
 # generated
 *.png
-!docs/theory/img/*.png
+!webpage/theory/img/*.png
 *.mp4
+!webpage/**/*.mp4
 *.zip
 B-Spline-IPC/cache
 B-Spline-IPC/steps
@@ -402,9 +403,6 @@ _*/
 !Altrar/Altrar/ext/_libs/
 !premake5.exe
 *.pdb
-
-# temp
-docs/theory/temp/*
 
 # compiled binaries
 B-Spline-IPC/bin
