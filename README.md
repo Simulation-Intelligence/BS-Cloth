@@ -14,7 +14,7 @@
   <p>
     <sup>1</sup>Carnegie Mellon University &nbsp;&nbsp;
     <sup>2</sup>University of Utah &nbsp;&nbsp;
-    <sup>3</sup>Zhejiang University &nbsp;&nbsp;
+    <sup>3</sup>Zhejiang University &nbsp;&nbsp; <br/>
     <sup>4</sup>The University of Hong Kong &nbsp;&nbsp;
     <sup>5</sup>Genesis AI
   </p>
